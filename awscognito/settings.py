@@ -57,7 +57,7 @@ ROOT_URLCONF = 'awscognito.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/delhivery/delhivery_code/aws_cogito/awscognito/templates',
+        'DIRS': ['/Users/gugbrian/Documents/workspace/django/djangotest/django-learning/django-aws-cognito/templates',
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -124,7 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 LOCAL_STATICFILES_DIRS = (
     #os.path.join(BASE_DIR, "static"),
-    "/home/delhivery/delhivery_code/aws_cogito/awscognito/staticfiles",
+    "/Users/gugbrian/Documents/workspace/django/djangotest/django-learning/django-aws-cognito/staticfiles",
 )
 STATICFILES_DIRS = LOCAL_STATICFILES_DIRS
 STATIC_URL = '/static/'

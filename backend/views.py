@@ -19,7 +19,14 @@ class SignUp(APIView):
         idp_client = boto3.client('cognito-idp', **settings.DEFAULT_CONFIG)
         user = idp_client.sign_up(ClientId=settings.DEFAULT_USER_POOL_APP_ID,
                                 Username=request.data['username'],
-                                Password=request.data['password'])
+                                Password=request.data['password'],
+                                 UserAttributes=[
+                                                    {
+                                                        'Name': 'email',
+                                                        'Value': 'bguggs@gmail.com'
+                                                    },
+                                                ],
+                                )
         return Response(data={'user':user}, status=status.HTTP_201_CREATED)
 
 
@@ -35,7 +42,8 @@ class AdminInitiateAuth(APIView):
                                        AuthFlow='ADMIN_NO_SRP_AUTH', 
                                        ClientId=settings.DEFAULT_USER_POOL_APP_ID, 
                                        AuthParameters={'USERNAME':request.data['username'], 
-                                                       'PASSWORD':request.data['password']}
+                                                       'PASSWORD':request.data['password'],
+                                                       }
                                        )
         # get identity id
         res = ci_client.get_id(AccountId=settings.ACCOUNTID,
@@ -47,7 +55,6 @@ class AdminInitiateAuth(APIView):
         return Response(data={'user':user,
                               'res':res}, status=status.HTTP_201_CREATED)
 
-    
 class PublicProviderLogin(APIView):
     '''
     '''
