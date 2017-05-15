@@ -57,7 +57,7 @@ ROOT_URLCONF = 'awscognito.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/gugbrian/Documents/workspace/django/djangotest/django-learning/django-aws-cognito/templates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -123,8 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 LOCAL_STATICFILES_DIRS = (
-    #os.path.join(BASE_DIR, "static"),
-    "/Users/gugbrian/Documents/workspace/django/djangotest/django-learning/django-aws-cognito/staticfiles",
+    os.path.join(BASE_DIR, "staticfiles"),
 )
 STATICFILES_DIRS = LOCAL_STATICFILES_DIRS
 STATIC_URL = '/static/'

@@ -23,7 +23,7 @@ class SignUp(APIView):
                                  UserAttributes=[
                                                     {
                                                         'Name': 'email',
-                                                        'Value': 'bguggs@gmail.com'
+                                                        'Value': request.data['username']
                                                     },
                                                 ],
                                 )
@@ -52,6 +52,7 @@ class AdminInitiateAuth(APIView):
                                         settings.DEFAULT_USER_POOL_LOGIN_PROVIDER:user['AuthenticationResult']['IdToken']
                                         }
                                 )
+        print user
         return Response(data={'user':user,
                               'res':res}, status=status.HTTP_201_CREATED)
 
